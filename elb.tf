@@ -29,15 +29,3 @@ resource "aws_elb" "app_elb" {
   instances=["${aws_instance.bilal-demo.*.id}"]
   depends_on = ["aws_instance.bilal-demo"]
 }
-#resource "aws_elb_attachment" "att1" {
-#  elb      = "${aws_elb.app_elb.id}"
-#  #instance = "${aws_instance.bilal-demo.id}"
-#  
-#   instance = "${element(aws_instance.bilal-demo.*.id, 0)}"
-#}
-#
-#resource "aws_elb_attachment" "att2" {
-#  elb      = "${aws_elb.app_elb.id}"
-#   
-#   instance = "${element(aws_instance.bilal-demo.*.id, 1)}"
-#}
